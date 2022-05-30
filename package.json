@@ -1,6 +1,6 @@
 {
   "name": "spworlds",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Library to for SPWorlds API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,6 @@
     "typescript": "^4.7.2"
   },
   "dependencies": {
-    "axios": "^0.26.1",
     "node-fetch": "^2.6.7"
   }
 }
