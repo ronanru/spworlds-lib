@@ -4,7 +4,7 @@
 import { createHmac, timingSafeEqual } from 'crypto';
 import fetch from 'node-fetch';
 
-class SPWorlds {
+export class SPWorlds {
   private authHeader: string;
   private token: string;
 
@@ -82,5 +82,3 @@ class SPWorlds {
       Buffer.from(hashHeader)
     );
 }
-
-export default SPWorlds;
