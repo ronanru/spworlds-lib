@@ -12,7 +12,7 @@ export class SPWorlds {
     fetch(`https://spworlds.ru/api/public/${path}`, {
       method: body === null ? 'GET' : 'POST',
       body: body ? JSON.stringify(body) : undefined,
-      headers: { Authorization: this.authHeader }
+      headers: { Authorization: this.authHeader, 'Content-Type': 'application/json' }
     }).then(res => {
       if (![200, 404].includes(res.status))
         throw new Error(`Ошибка при запросе к API ${res.status} ${res.statusText}`);
@@ -56,6 +56,13 @@ export class SPWorlds {
    */
   createTransaction = (receiver: string, amount: number, comment: string): Promise<void> =>
     this.fetchApi('transactions', { receiver, amount, comment }, false).then(() => {});
+
+  /**
+   * Узнает баланс АРов на карте
+   * @returns Баланс карты
+   */
+  getCardBalance = (): Promise<number> =>
+    this.fetchApi('card', null, true).then(({ balance }: { balance: number }) => balance);
 
   /**
    * Переводит АРы с карты кому-то еще

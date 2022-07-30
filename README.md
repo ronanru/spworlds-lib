@@ -46,6 +46,14 @@ const url = await api.initPayment(
 api.createTransaction('11111', 16, 'С днем рождения!');
 ```
 
+### Получение баланса карты
+
+```js
+const balance = await api.getCardBalance();
+```
+
+`balance` - Целое число больше нуля (Баланс карты)
+
 ### Получение ника игрока
 
 Метод принимает ID игрока в Discord и возвращает его ник, если у него есть вход на сервер.
