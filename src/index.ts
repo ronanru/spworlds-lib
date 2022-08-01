@@ -8,7 +8,11 @@ export class SPWorlds {
   private authHeader: string;
   private token: string;
 
-  private fetchApi = (path: string, body: Record<string, unknown> | null, getResult: boolean) =>
+  private fetchApi = (
+    path: string,
+    body: Record<string, unknown> | null,
+    getResult: boolean
+  ): any =>
     fetch(`https://spworlds.ru/api/public/${path}`, {
       method: body === null ? 'GET' : 'POST',
       body: body ? JSON.stringify(body) : undefined,
