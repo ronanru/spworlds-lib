@@ -36,7 +36,7 @@ export class SPWorlds {
    *
    * @param amount Стоимость покупки в АРах
    * @param redirectUrl Ссылка успешной оплаты, на которую перенаправят пользователя после успешной оплаты
-   * @param webhookUrl Ссылка, на которую прейдет уведомление об успешной оплате
+   * @param webhookUrl Ссылка вебхука, на которую придет вебхук об успешной оплате
    * @param data Любые полезные данные пользователя
    * @returns URL оплаты
    */
@@ -69,8 +69,8 @@ export class SPWorlds {
     this.fetchApi('card', null, true).then(({ balance }: { balance: number }) => balance);
 
   /**
-   * Переводит АРы с карты кому-то еще
-   * @param discordId ID игрока к дискорде
+   * Получает ник игрока по discord id
+   * @param discordId ID игрока в дискорде
    * @returns Ник игрока
    */
   findUser = (discordId: string): Promise<string | null> =>
